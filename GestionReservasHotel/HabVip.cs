@@ -34,6 +34,12 @@ namespace GestionReservasHotel
 
                 decimal total = nuevaReserva.CalcularCostoTotal();
                 dataGridView1.Rows.Add(numeroHabitacion, nombreCliente, fechaReserva.ToShortDateString(), noches, total);
+
+                if (int.Parse(txtNoches.Text) <= 1)
+                {
+                    MessageBox.Show("Debe reservar al menos 2 noches.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
             }
             catch (Exception ex)
             {

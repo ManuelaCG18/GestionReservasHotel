@@ -22,10 +22,12 @@ namespace GestionReservasHotel
             {
                 throw new ArgumentException("El nombre del cliente es OBLIGATORIO. :)");
             }
-            if (duracion < 1)
+
+            if (duracion <= 1) 
             {
-                throw new ArgumentException("La duración de la estadía debe ser mayor a 1 noche. :)");
+                throw new ArgumentException("La duración de la estadía debe ser mayor a 1 noche. (Mínimo 2 noches) :)");
             }
+
 
             NombreCliente = nombre;
             NumeroHabitacion = habitacion;

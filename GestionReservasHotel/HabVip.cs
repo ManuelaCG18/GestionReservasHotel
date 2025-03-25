@@ -26,9 +26,10 @@ namespace GestionReservasHotel
                 DateTime fechaReserva = dtpFechaReserva.Value;
                 int noches = int.Parse(txtNoches.Text);
 
-
+                // nueva instancia de reserva con los nuevos datos
                 Reserva nuevaReserva = ReservaFactory.CrearReserva("Vip", nombreCliente, numeroHabitacion, fechaReserva, noches);
 
+                // llamada a AgregarReserva
                 GestorReservas.Instancia.AgregarReserva(nuevaReserva);
 
                 decimal total = nuevaReserva.CalcularCostoTotal();

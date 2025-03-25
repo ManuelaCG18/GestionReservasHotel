@@ -102,28 +102,36 @@ namespace GestionReservasHotel
                 throw new Exception("Ya existe una reserva para esta habitación en la misma fecha.");
             }
 
-            // Si no hay conflicto, se agrega la reserva
+            
             reservas.Add(reserva);
         }
 
         public void EliminarReserva(int numeroHabitacion, DateTime fechaReserva)
         {
-            var reserva = reservas.FirstOrDefault(r => r.NumeroHabitacion == numeroHabitacion && r.FechaReserva == fechaReserva);
+            var reserva = reservas.FirstOrDefault(r => r.NumeroHabitacion == numeroHabitacion && r.FechaReserva.Date == fechaReserva.Date);
             if (reserva == null)
+            {
                 throw new Exception("La reserva no existe.");
+            }
             reservas.Remove(reserva);
         }
 
         public void EditarReserva(int numeroHabitacion, DateTime fechaReserva, Reserva nuevaReserva)
         {
-            EliminarReserva(numeroHabitacion, fechaReserva);
-            AgregarReserva(nuevaReserva);
+            var reserva = reservas.FirstOrDefault(r => r.NumeroHabitacion == numeroHabitacion && r.FechaReserva.Date == fechaReserva.Date);
+            if (reserva == null)
+            {
+                throw new Exception("La reserva no existe.");
+            }
+
+            reserva.NombreCliente = nuevaReserva.NombreCliente;
+            reserva.NumeroHabitacion = nuevaReserva.NumeroHabitacion;
+            reserva.FechaReserva = nuevaReserva.FechaReserva;
+            reserva.DuracionEstadia = nuevaReserva.DuracionEstadia;
         }
 
-        public List<Reserva> ListarReservas()
-        {
-            return reservas;
-        }
+
+
     }
 
 

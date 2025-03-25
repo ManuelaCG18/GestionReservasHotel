@@ -44,6 +44,8 @@
             this.dtpFechaReserva = new System.Windows.Forms.DateTimePicker();
             this.txtNombreCliente = new System.Windows.Forms.TextBox();
             this.txtNumHabitacion = new System.Windows.Forms.TextBox();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,6 +125,7 @@
             this.NumeroHabitacion.HeaderText = "N° HABITACION";
             this.NumeroHabitacion.MinimumWidth = 8;
             this.NumeroHabitacion.Name = "NumeroHabitacion";
+            this.NumeroHabitacion.ReadOnly = true;
             this.NumeroHabitacion.Width = 150;
             // 
             // NombreCliente
@@ -130,6 +133,7 @@
             this.NombreCliente.HeaderText = "NOMBRE CLIENTE";
             this.NombreCliente.MinimumWidth = 8;
             this.NombreCliente.Name = "NombreCliente";
+            this.NombreCliente.ReadOnly = true;
             this.NombreCliente.Width = 150;
             // 
             // FechaReserva
@@ -137,6 +141,7 @@
             this.FechaReserva.HeaderText = "FECHA RESERVA";
             this.FechaReserva.MinimumWidth = 8;
             this.FechaReserva.Name = "FechaReserva";
+            this.FechaReserva.ReadOnly = true;
             this.FechaReserva.Width = 150;
             // 
             // Noches
@@ -144,6 +149,7 @@
             this.Noches.HeaderText = "NOCHES";
             this.Noches.MinimumWidth = 8;
             this.Noches.Name = "Noches";
+            this.Noches.ReadOnly = true;
             this.Noches.Width = 150;
             // 
             // Total
@@ -151,6 +157,7 @@
             this.Total.HeaderText = "TOTAL ";
             this.Total.MinimumWidth = 8;
             this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
             this.Total.Width = 150;
             // 
             // btnAgregar
@@ -184,11 +191,31 @@
             this.txtNumHabitacion.Size = new System.Drawing.Size(270, 26);
             this.txtNumHabitacion.TabIndex = 12;
             // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(29, 531);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(145, 42);
+            this.btnEliminar.TabIndex = 22;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Location = new System.Drawing.Point(240, 531);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(145, 42);
+            this.btnEditar.TabIndex = 23;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = true;
+            // 
             // HabVip
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1354, 613);
+            this.Controls.Add(this.btnEditar);
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtNoches);
             this.Controls.Add(this.label4);
@@ -226,5 +253,7 @@
         private System.Windows.Forms.DateTimePicker dtpFechaReserva;
         private System.Windows.Forms.TextBox txtNombreCliente;
         private System.Windows.Forms.TextBox txtNumHabitacion;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnEditar;
     }
 }

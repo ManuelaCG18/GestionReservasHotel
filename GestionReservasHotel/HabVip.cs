@@ -26,22 +26,24 @@ namespace GestionReservasHotel
                 DateTime fechaReserva = dtpFechaReserva.Value;
                 int noches = int.Parse(txtNoches.Text);
 
-                // Crear reserva VIP
-                Reserva nuevaReserva = ReservaFactory.CrearReserva("Vip", nombreCliente, numeroHabitacion, fechaReserva, noches);
 
-                // Calcular el total
-                decimal total = nuevaReserva.CalcularCostoTotal();
+                Reserva nuevaReserva = ReservaFactory.CrearReserva("Estandar", nombreCliente, numeroHabitacion, fechaReserva, noches);
 
-                // Agregar al DataGridView
-                dataGridView1.Rows.Add(numeroHabitacion, nombreCliente, fechaReserva.ToShortDateString(), noches, total);
-
-                // Guardar en la lista de reservas
+                
                 GestorReservas.Instancia.AgregarReserva(nuevaReserva);
+
+                
+                decimal total = nuevaReserva.CalcularCostoTotal();
+                dataGridView1.Rows.Add(numeroHabitacion, nombreCliente, fechaReserva.ToShortDateString(), noches, total);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
+
+       
+
     }
 }

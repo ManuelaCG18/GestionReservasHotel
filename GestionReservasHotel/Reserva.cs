@@ -97,8 +97,12 @@ namespace GestionReservasHotel
 
         public void AgregarReserva(Reserva reserva)
         {
-            if (reservas.Any(r => r.NumeroHabitacion == reserva.NumeroHabitacion && r.FechaReserva == reserva.FechaReserva))
+            if (reservas.Any(r => r.NumeroHabitacion == reserva.NumeroHabitacion && r.FechaReserva.Date == reserva.FechaReserva.Date))
+            {
                 throw new Exception("Ya existe una reserva para esta habitación en la misma fecha.");
+            }
+
+            // Si no hay conflicto, se agrega la reserva
             reservas.Add(reserva);
         }
 

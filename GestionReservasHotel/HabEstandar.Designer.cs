@@ -44,6 +44,8 @@
             this.FechaReserva = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Noches = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -184,11 +186,33 @@
             this.Total.Name = "Total";
             this.Total.Width = 150;
             // 
+            // btnEditar
+            // 
+            this.btnEditar.Location = new System.Drawing.Point(258, 506);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(145, 42);
+            this.btnEditar.TabIndex = 25;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(47, 506);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(145, 42);
+            this.btnEliminar.TabIndex = 24;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
             // HabEstandar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1368, 579);
+            this.Controls.Add(this.btnEditar);
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtNoches);
             this.Controls.Add(this.label4);
@@ -226,5 +250,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaReserva;
         private System.Windows.Forms.DataGridViewTextBoxColumn Noches;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
+        private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }

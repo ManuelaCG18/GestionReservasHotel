@@ -101,7 +101,7 @@ namespace GestionReservasHotel
                 int nuevasNoches = int.Parse(txtNoches.Text);
 
                 // nueva instancia de reserva con los nuevos datos
-                Reserva nuevaReserva = ReservaFactory.CrearReserva("Estandar", nuevoNombre, nuevoNumero, nuevaFecha, nuevasNoches);
+                Reserva nuevaReserva = ReservaFactory.CrearReserva("Vip", nuevoNombre, nuevoNumero, nuevaFecha, nuevasNoches);
 
                 // llamada a EditarReserva
                 GestorReservas.Instancia.EditarReserva(numeroHabitacion, fechaReserva.Date, nuevaReserva);

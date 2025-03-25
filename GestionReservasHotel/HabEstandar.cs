@@ -88,24 +88,24 @@ namespace GestionReservasHotel
                     return;
                 }
 
-                // Obtener datos de la fila seleccionada
+                
                 DataGridViewRow filaSeleccionada = dataGridView1.SelectedRows[0];
                 int numeroHabitacion = int.Parse(filaSeleccionada.Cells[0].Value.ToString());
                 DateTime fechaReserva = DateTime.Parse(filaSeleccionada.Cells[2].Value.ToString());
 
-                // Obtener los nuevos datos ingresados por el usuario
+                
                 string nuevoNombre = txtNombreCliente.Text;
                 int nuevoNumero = int.Parse(txtNumHabitacion.Text);
                 DateTime nuevaFecha = dtpFechaReserva.Value;
                 int nuevasNoches = int.Parse(txtNoches.Text);
 
-                // Crear una nueva instancia de reserva con los nuevos datos
+                // nueva instancia de reserva con los nuevos datos
                 Reserva nuevaReserva = ReservaFactory.CrearReserva("Estandar", nuevoNombre, nuevoNumero, nuevaFecha, nuevasNoches);
 
-                // Llamada corregida a EditarReserva
+                // llamada a EditarReserva
                 GestorReservas.Instancia.EditarReserva(numeroHabitacion, fechaReserva.Date, nuevaReserva);
 
-                // Actualizar la fila en el DataGridView con los nuevos datos
+                
                 filaSeleccionada.Cells[0].Value = nuevoNumero;
                 filaSeleccionada.Cells[1].Value = nuevoNombre;
                 filaSeleccionada.Cells[2].Value = nuevaFecha.ToShortDateString();

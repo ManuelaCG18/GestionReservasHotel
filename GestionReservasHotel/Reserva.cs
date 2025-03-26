@@ -97,25 +97,41 @@ namespace GestionReservasHotel
             }
         }
 
-        public void AgregarReserva(Reserva reserva)
+        public string AgregarReserva(Reserva reserva)
         {
-            if (reservas.Any(r => r.NumeroHabitacion == reserva.NumeroHabitacion && r.FechaReserva.Date == reserva.FechaReserva.Date))
+            try
             {
-                throw new Exception("Ya existe una reserva para esta habitación en la misma fecha.");
-            }
+                if (reservas.Any(r => r.NumeroHabitacion == reserva.NumeroHabitacion && r.FechaReserva.Date == reserva.FechaReserva.Date))
+                {
+                    return "Ya existe una reserva para esta habitación en la misma fecha.";
+                }
 
-            
-            reservas.Add(reserva);
+                reservas.Add(reserva);
+                return "Reserva agregada correctamente.";
+            }
+            catch (Exception ex)
+            {
+                return $"Error al agregar reserva: {ex.Message}";
+            }
         }
 
-        public void EliminarReserva(int numeroHabitacion, DateTime fechaReserva)
+        public string EliminarReserva(int numeroHabitacion, DateTime fechaReserva)
         {
-            var reserva = reservas.FirstOrDefault(r => r.NumeroHabitacion == numeroHabitacion && r.FechaReserva.Date == fechaReserva.Date);
-            if (reserva == null)
+            try
             {
-                throw new Exception("La reserva no existe.");
+                var reserva = reservas.FirstOrDefault(r => r.NumeroHabitacion == numeroHabitacion && r.FechaReserva.Date == fechaReserva.Date);
+                if (reserva == null)
+                {
+                    return "La reserva no existe.";
+                }
+
+                reservas.Remove(reserva);
+                return "Reserva eliminada correctamente.";
             }
-            reservas.Remove(reserva);
+            catch (Exception ex)
+            {
+                return $"Error al eliminar reserva: {ex.Message}";
+            }
         }
 
         public void EditarReserva(int numeroHabitacion, DateTime fechaReserva, Reserva nuevaReserva)
